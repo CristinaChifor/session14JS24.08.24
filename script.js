@@ -59,6 +59,23 @@ comment[0].value = "Pre-established comment";
  const allToDos = document.querySelectorAll("#card > ol > .todo-item");
  console.log(allToDos);
 
+//  Manipulate the DOM
+
+/** 1. Manipularea unui element
+ * textContent și innerHTML: 
+ * Aceste proprietati permit accesarea si modificarea 
+ * continutului text al unui element. 
+ * textContent returnează sau setează doar textul, 
+ * in timp ce innerHTML permite lucrul cu conținut HTML.
+ */
+
+const p = document.querySelector("p");
+p.textContent = "This was added with JS";
+
+const footer = document.querySelector("footer");
+footer.innerHTML = "<strong>Author: </strong><span>John Doe</span>";
+
+
 
 
 
