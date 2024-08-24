@@ -58,6 +58,8 @@ comment[0].value = "Pre-established comment";
 
  const allToDos = document.querySelectorAll("#card > ol > .todo-item");
  console.log(allToDos);
+ console.log(allToDos[0].textContent);
+ console.log(allToDos[0].innerText);
 
 //  Manipulate the DOM
 
@@ -73,7 +75,63 @@ const p = document.querySelector("p");
 p.textContent = "This was added with JS";
 
 const footer = document.querySelector("footer");
-footer.innerHTML = "<strong>Author: </strong><span>John Doe</span>";
+
+const author  = "John Doe";
+footer.innerHTML = `<strong>Author: </strong><span>${author}</span>`;
+
+const posts = [
+    {
+        author: "Nick",
+        todos: ["do1, do2"],
+        comment: "my comment",
+        title: "card 1"
+    },
+    {
+        author: "Nick",
+        todos: ["do1, do2"],
+        comment: "my comment",
+        title: "card 2"
+    },
+    {
+        author: "Nick",
+        todos: ["do1, do2"],
+        comment: "my comment",
+        title: "card 3"
+    }
+];
+
+const body = document.querySelector("body");
+let htmlContent = '';
+for (const post of posts) {
+    const card = `<article class="card">
+            <p>${post.title}</p>
+
+            <ol>
+            
+                ${post.todos.map((el) => '<li class="todo-item">'+ el + "</li>" )}
+            </ol>
+            <label for="comment">Comment</label>
+            <input type="text" id="comment" name="comment" value="${post.comment}">
+            <footer></footer>
+        </article>`
+
+    htmlContent += card;
+}
+
+body.innerHTML = htmlContent;
+
+const allToDos2 = document.querySelector("p");
+ console.log(allToDos2);
+
+ console.log(allToDos2.textContent);
+ allToDos2.textContent = "ast";
+
+ console.log(allToDos2.innerText);
+ allToDos2.innerText = "bcklll";
+
+ console.log(allToDos2.innerText);
+ console.log(allToDos2.textContent);
+
 
 
 
