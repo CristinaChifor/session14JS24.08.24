@@ -27,9 +27,38 @@ console.log(todos);
 todos[0].id = "new id";
 
 /** Accesarea elementelor din DOM dupa valoarea atributului name:
- * document.getElementsByName(‘nume’); - intoarce o lista cu toate elementele ce au name=‘nume’.
+ * document.getElementsByName(‘nume’); 
+ intoarce o lista cu toate elementele ce au name=‘nume’.
  */
 
 const comment = document.getElementsByName("comment");
 console.log(comment);
-comment[0].value = co
+comment[0].value = "Pre-established comment";
+
+/** Accesarea elementelor din DOM dupa tipul elementului (numele tag-ului):
+* document.getElementsByTagName(‘tip-element’);
+ intoarce o lista cu toate elementele ce au numele tag-ului ‘tip-element’ (ex: div, span, button, section, etc).
+ */
+
+ const listItems = document.getElementsByTagName("li");
+ console.log(listItems);
+
+ /** Accesarea elementelor din DOM dupa orice selector CSS valid:
+  * document.querySelector(‘selector’); 
+  * intoarce primul element identificabil prin selectorul ‘selector’.
+  */
+
+ const cardParagraf = document.querySelector("#card > p");
+ console.log(cardParagraf);
+
+ /** Accesarea tuturor elementelor din DOM dupa orice selector CSS valid:
+  * document.querySelectorAll(‘selector’); 
+  * - intoarce toate elementele identificabile prin selectorul ‘selector’.
+  */
+
+ const allToDos = document.querySelectorAll("#card > ol > .todo-item");
+ console.log(allToDos);
+
+
+
+
