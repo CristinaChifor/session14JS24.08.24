@@ -119,10 +119,27 @@ for (const post of posts) {
             </footer>
         `;
     article.innerHTML = card;
-    body.appendChild(article);
+    const comm = article.querySelector("input");
+    comm.addEventListener("keydown", (event) => {
+        console.log("event: ", event);
+        const key = event.key;
+        const numbers = "123456789";
+        if (numbers.includes(key)) {
+            event.preventDefault();
+            alert("no numbers allowed!");
+        }
 
+        // const commInput = event.target;
+        // const slicedText = commInput.value.slice(0, commInput.value.length - 1);
+        // console.log("sliced: ", slicedText);
+        // commInput.value = slicedText;
+
+    });
+    body.appendChild(article);
     // htmlContent += card;
-}
+    }
+
+// htmlContent += card;
 
 // body.innerHTML = htmlContent;
 // body.textContent= htmlContent;
@@ -209,8 +226,34 @@ newParagraph.appendChild(span);
 Se face prin metoda remove() pentru a sterge un element din DOM.
  */
 
-const allCards = document.querySelectorAll("card");
+const allCards = document.querySelectorAll(".card");
 allCards[allCards.length - 1].remove();
+
+// Event Listener
+
+/** Event listeners (ascultători de evenimente) sunt functii care sunt atasate la elemente HTML 
+ * si care sunt declansate in momentul in care un anumit eveniment are loc asupra acelui element. 
+ 
+ * addEventListener primeste doi parametri: tipul de eveniment si o functie care se executa 
+atunci cand evenimentul are loc.
+ */
+
+const interactive = document.getElementById("interactive-text");
+
+const onClick = () => {
+    if (interactive.classList.contains("red")) {
+        interactive.classList.remove("red");
+    } else {
+        interactive.classList.add("red");
+    }
+    
+}
+
+interactive.addEventListener("click", onClick);
+
+// removeEventListener 
+
+interactive.removeEventListener("click", onClick);
 
 
 
