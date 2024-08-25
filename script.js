@@ -119,7 +119,8 @@ for (const post of posts) {
 }
 
 body.innerHTML = htmlContent;
-
+// body.textContent= htmlContent;
+// innerText vs textContent
 const allToDos2 = document.querySelector("p");
  console.log(allToDos2);
 
@@ -132,8 +133,46 @@ const allToDos2 = document.querySelector("p");
  console.log(allToDos2.innerText);
  console.log(allToDos2.textContent);
 
+ /** getAttribute și setAttribute: 
+  * Aceste metode permit accesarea si modificarea atributelor 
+  * unui element.
+  */
 
+ const firstInput = document.querySelectorAll("input");
+ console.log(`input: `, firstInput);
+ console.log("....");
 
+ firstInput[0].readOnly = true;
+firstInput[1].setAttribute("readonly", true);
+let firstInputValue = firstInput[0].getAttribute("value");
+console.log("fisrtValue =", firstInputValue);
+
+/** classList: 
+ * Aceasta proprietate este utila pentru a lucra cu clasele CSS ale unui element. 
+ * Permite adaugarea, eliminarea sau verificarea claselor.
+ */
+
+const allP = document.querySelectorAll("p");
+for (const paragraph of allP) {
+    paragraph.classList.add("red", "underline");
+}
+
+let index = 0;
+for (const paragraph of allP) {
+    if (index % 2 > 0) {
+        paragraph.classList.remove("red");
+    }
+    index++;
+}
+
+/**style: 
+ * Aceasta proprietate permite accesarea si modificarea 
+ * stilurilor CSS ale unui element.
+ */
+
+for (const paragraph of allP) {
+    paragraph.style.textTransform = "uppercase";
+}
 
 
 

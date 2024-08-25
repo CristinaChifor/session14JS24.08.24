@@ -4,3 +4,10 @@
     padding: 1em;
 }
 
+.red {
+    color: red;
+}
+
+.underline {
+    text-decoration: underline;
+}
