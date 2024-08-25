@@ -103,7 +103,9 @@ const posts = [
 const body = document.querySelector("body");
 let htmlContent = '';
 for (const post of posts) {
-    const card = `<article class="card">
+    const article = document.createElement("article");
+    article.classList.add("card");
+    const card = `
             <p>${post.title}</p>
 
             <ol>
@@ -112,13 +114,17 @@ for (const post of posts) {
             </ol>
             <label for="comment">Comment</label>
             <input type="text" id="comment" name="comment" value="${post.comment}">
-            <footer></footer>
-        </article>`
+            <footer>
+            <strong>Author:</strong> ${post.author} <span></span>
+            </footer>
+        `;
+    article.innerHTML = card;
+    body.appendChild(article);
 
-    htmlContent += card;
+    // htmlContent += card;
 }
 
-body.innerHTML = htmlContent;
+// body.innerHTML = htmlContent;
 // body.textContent= htmlContent;
 // innerText vs textContent
 const allToDos2 = document.querySelector("p");
@@ -173,6 +179,40 @@ for (const paragraph of allP) {
 for (const paragraph of allP) {
     paragraph.style.textTransform = "uppercase";
 }
+
+// Crearea unui element HTML
+
+/** document.createElement() 
+ * este folosit pentru a crea un element nou. 
+ * Acest element este creat, dar nu este inca atasat la nici o parte a DOM-ului.
+ 
+ * .appendChild(newElement) este folosit pentru a adauga un element ca ultim copil in elementul ce apeleaza metoda.
+ */
+
+const newParagraph = document.createElement("p");
+newParagraph.textContent = "My new paragraph";
+console.log(newParagraph);
+
+body.appendChild(newParagraph);
+const span = document.createElement("span");
+span.textContent = " altceva";
+span.classList.add("red");
+newParagraph.appendChild(span);
+
+// Stergerea unui element
+
+/** 1.Identificarea elementului:
+ *Utilizam metode precum getElementById, getElementsByClassName, getElementsByTagName, 
+ sau querySelector pentru a identifica elementul pe care dorim sa-l stergem.
+
+2. Stergerea elementului:
+Se face prin metoda remove() pentru a sterge un element din DOM.
+ */
+
+const allCards = document.querySelectorAll("card");
+allCards[allCards.length - 1].remove();
+
+
 
 
 
